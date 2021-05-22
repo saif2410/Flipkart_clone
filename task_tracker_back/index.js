@@ -6,7 +6,7 @@ const Task = require('./models/task');
 
 const dbUrl='mongodb+srv://tester:tester123@ClusterName.m7tde.mongodb.net/testing?retryWrites=true&w=majority';
 mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
-.then((result) => app.listen(3000, () => console.log( ` Mongo Server running on port ${PORT}` ))) 
+.then((result) => app.listen(3000, () => console.log( 'Mongo Server running on port 3000' ))) 
 .catch((err) => console.log(err));
 
 const app = express();
