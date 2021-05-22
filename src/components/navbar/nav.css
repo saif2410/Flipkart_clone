@@ -1,0 +1,34 @@
+
+
+
+#right-item{
+    position: relative;
+}
+#bgcolor{
+    background-color: crimson;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-bottom: -9px;
+
+}
+#bgcolor:hover{
+    background-color: rgb(43, 49, 47);
+}
+.navbar{
+    background-color: crimson;
+    
+}
+
+#icon{
+    color: #FFFFFF;
+}
+
+
+.cart-svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
