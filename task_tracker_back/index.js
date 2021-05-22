@@ -34,7 +34,7 @@ app.get('/addtask',(req,res)=>{
 app.get('/alltasks',(req,res)=>{
     Task.find()
     .then((result)=>{
-        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
         res.send(result);
     })
     .catch((err)=>{
