@@ -4,16 +4,17 @@ const path = require('path');
 const fs = require('fs');
 const Task = require('./models/task');
 
+const PORT = 5000;
+
 const dbUrl='mongodb+srv://tester:tester123@ClusterName.m7tde.mongodb.net/testing?retryWrites=true&w=majority';
 mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
-.then((result) => app.listen(3000)) 
+.then((result) => app.listen( PORT, () => console.log( `Server running on port ${PORT}` )) ) 
 .catch((err) => console.log(err));
 
 const app = express();
 app.use(express.static( path.join( __dirname, 'public')));
 
-const PORT = 5000;
-app.listen( PORT, () => console.log( `Server running on port ${PORT}` ));
+
 
 app.get('/addtask',(req,res)=>{
     const task = new Task({
