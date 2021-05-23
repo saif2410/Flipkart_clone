@@ -2,8 +2,7 @@
 import './App.css';
 import './components/navbar/nav.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {Acc} from "./acc.js";
-import "./signup.css";
+import {Acc} from "./components/acc/acc.js";
 const account =0;
 function App() {
   return (

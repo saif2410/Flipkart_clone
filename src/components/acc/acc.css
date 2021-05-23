@@ -1,26 +1,24 @@
 body {
     margin: 0;
-    color: #6a6f8c;
-    background: #c8c8c8;
-    font: 600 16px/18px 'Open Sans', sans-serif
+    color: #dbd7d7;
+    font: 500 12px/15px 'Open Sans', sans-serif
 }
 
 .login-box {
-    width: 100%;
+    width:100%;
+    height:541px;
     margin: auto;
-    max-width: 525px;
-    min-height: 670px;
     position: relative;
-    background: url(https://images.unsplash.com/photo-1507208773393-40d9fc670acf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80) no-repeat center;
-    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+    background-color: crimson;
+
 }
 
 .login-snip {
     width: 100%;
     height: 100%;
     position: absolute;
-    padding: 90px 70px 50px 70px;
-    background: crimson;
+    margin-top: 80px;
 }
 
 .login-snip .login,
@@ -58,15 +56,15 @@ body {
 
 .login-snip .sign-in:checked+.tab,
 .login-snip .sign-up:checked+.tab {
-    color: #fff;
-    border-color: #1161ee
+    color: #ffff;
+    border-color: #ffff;
 }
 
 .login-space {
-    min-height: 345px;
     position: relative;
     perspective: 1000px;
-    transform-style: preserve-3d
+    transform-style: preserve-3d;
+    width: 100%;
 }
 
 .login-space .group {
@@ -90,7 +88,7 @@ body {
 }
 
 .login-space .group input[data-type="password"] {
-    /* text-security: circle; */
+    text-security: circle;
     -webkit-text-security: circle
 }
 
@@ -100,7 +98,7 @@ body {
 }
 
 .login-space .group .button {
-    background: #1161ee
+    background: white;
 }
 
 .login-space .group label .icon {
@@ -188,67 +186,21 @@ a {
 }
 
 .foot {
-    text-align: center
+    text-align: center;
 }
 
 .card {
-    width: 500px;
-    left: 100px
+    width: 400px;
+    height: 540px;
+
 }
 
 ::placeholder {
     color: #b3b3b3
 }
-
-.Modal {
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    padding-top: 100px;
-    background-color: black;
-    background-color: rgba(0, 0, 0, 0.4);
-    -webkit-transition: 0.5s;
-    overflow: auto;
-    transition: all 0.3s linear;
-  }
-  
-  .Modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border-radius: 4px;
-    max-width: 300px;
-    height: 450px;
-  }
-  
-  .ModalOpen { overflow: hidden; }
-  
-  .is-hidden { display: none; }
-  
-  .is-visuallyHidden { opacity: 0; }
-
-  .Close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 16px;
-  }
-  
-  .Close:hover, .Close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .is-blurred {
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
-  }
-  .is-blurred {
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
-  }
-
-
+.button{
+    color:crimson;
+}
+#bt{
+    color:crimson;
+}

@@ -10,6 +10,9 @@
     overflow: auto;
     box-sizing: border-box;
     margin-bottom: -9px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-color:crimson;
 
 }
 #bgcolor:hover{
