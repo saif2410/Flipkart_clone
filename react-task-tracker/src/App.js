@@ -21,6 +21,7 @@ function App() {
     getTasks()
   }, [])
 
+  // Get all tasks from database
   const fetchTask = async() =>{
     const res = await fetch('http://localhost:5000/alltasks')
     const data = await res.json()
@@ -28,11 +29,20 @@ function App() {
     
   }
   // Add Task
-  const addTask = (task) =>{
-    const id= Math.floor(Math.random()*1000+1)
-    const newTask ={id, ...task}
-    setTasks([ ...tasks, newTask])
-    console.log(task)
+  const addTask = async (task) =>{
+    
+    const res = await fetch('http://localhost:5000/addtask',
+    {
+      method: 'POST',
+      mode: 'no-cors',
+      headers:{
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify(task)
+    })
+    
+    // const data = await res.json();
+    // setTasks([...tasks,data])
   }
   
   // Delete Task

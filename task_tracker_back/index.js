@@ -12,20 +12,23 @@ mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
 
 const app = express();
 app.use(express.static( path.join( __dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({extended : false}));
 
-app.get('/addtask',(req,res)=>{
-    const task = new Task({
-        text: 'Gynacologist Appoinment',
-        time: 'Never',
-        reminder: false,
-    });
-    task.save()
-    .then((result)=>{
-        res.send(result);
-    })
-    .catch((err)=>{
-        console.log(err);
-    });
+app.post('/addtask',(req,res)=>{
+    console.log(req.body);
+    // const task = new Task({
+    //     text: req.body.text,
+    //     time: req.body.time,
+    //     reminder: req.body.reminder,
+    // });
+    // task.save()
+    // .then((result)=>{
+    //     res.send(result);
+    // })
+    // .catch((err)=>{
+    //     console.log(err);
+    // });
 });
 
 app.get('/alltasks',(req,res)=>{
