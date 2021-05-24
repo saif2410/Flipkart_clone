@@ -6,5 +6,6 @@ const taskSchema=new Schema({
     time : String,
     reminder :Boolean
 });
+
 const Task = mongoose.model('task',taskSchema);
 module.exports = Task;

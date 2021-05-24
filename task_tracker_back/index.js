@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const fs = require('fs');
 const Task = require('./models/task');
+const Image = require('./models/image');
 
 const PORT = 5000;
 const dbUrl='mongodb+srv://tester:tester123@ClusterName.m7tde.mongodb.net/testing?retryWrites=true&w=majority';
@@ -40,4 +41,15 @@ app.get('/alltasks',(req,res)=>{
     .catch((err)=>{
         console.log(err);
     });
+});
+
+app.get('/allimages',(req,res)=>{
+    Image.find()
+    .then((result)=>{
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.send(result);
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
 });

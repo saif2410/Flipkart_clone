@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import Images from './components/Images'
 import AddTasks from './components/AddTasks'
 import { useEffect } from 'react'
 import Footer from './components/Footer'
@@ -12,14 +13,25 @@ function App() {
   const name = 'Hisoku'
   const [showAddTask, setShowAddTask] = useState(false)
   const [tasks,setTasks]= useState([])
+  const [images,setImage] = useState([])
 
   useEffect(()=>{
     const getTasks = async ()=> {
       const taskf = await fetchTask()
+      const imagef = await fetchImage()
+      setImage(imagef)
       setTasks(taskf)
     }
     getTasks()
   }, [])
+
+  // Get all images from database
+  const fetchImage = async() =>{
+    const res = await fetch('http://localhost:5000/allimages')
+    const data = await res.json()
+    return data
+    
+  }
 
   // Get all tasks from database
   const fetchTask = async() =>{
@@ -41,8 +53,8 @@ function App() {
       body: JSON.stringify(task)
     })
     
-    // const data = await res.json();
-    // setTasks([...tasks,data])
+    const data = await res.json();
+    setTasks([...tasks,data])
   }
   
   // Delete Task
@@ -53,6 +65,7 @@ function App() {
 
   // Toggle Reminder
   const toggleReminder = (id) => {
+    
     setTasks(
       tasks.map( (task) => 
         task.id===id ? { ...task, reminder: !task.reminder }
@@ -70,7 +83,8 @@ function App() {
       <Route path='/'exact render={(props) => (
           <>
             <h2>hello {name}</h2>
-            {tasks.length>0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'Nothing to show'} 
+            {tasks.length>0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'Nothing to show'}
+            {images.length>0 ? <Images images={images} /> : 'No Images'} 
           </>)
         }
       />
