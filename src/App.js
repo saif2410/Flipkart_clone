@@ -4,7 +4,18 @@ import './components/navbar/nav.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {Acc} from "./components/acc/acc.js";
 const account =0;
-function App() {
+function App()  {const addUser = async(user) =>{
+    //   const res = await fetch('http://localhost:5000/addUser',
+    //   {
+    //     method: 'POST',
+    //     header:{
+    //     'content-type':'application/json'
+    //   },
+    //   body: JSON.stringify(user)
+    //  } )
+    const User = JSON.stringify(user)
+    console.log(User);
+   }
   return (
 <div>
 <nav  className="navbar" >
