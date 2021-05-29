@@ -34,21 +34,33 @@ function App() {
   }
 
   // Get all tasks from database
-  const fetchTask = async() =>{
+  const fetchTask = async() =>{ 
     const res = await fetch('http://localhost:5000/alltasks')
     const data = await res.json()
     return data
     
   }
+
+  // Get searched images
+  const searchImages = async() =>{
+    // Simple POST request with a JSON body using fetch
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ str : 'sa' })
+    };
+    const res = await fetch('http://localhost:5000/search', requestOptions)
+    const data = await res.json()
+    return data
+  }
+
   // Add Task
   const addTask = async (task) =>{
-    
     const res = await fetch('http://localhost:5000/addtask',
     {
       method: 'POST',
-      mode: 'no-cors',
       headers:{
-        'Content-type':'application/json'
+        'Content-Type':'application/json'
       },
       body: JSON.stringify(task)
     })
