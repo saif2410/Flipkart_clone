@@ -9,7 +9,7 @@ const Task = require('./models/task');
 const Image = require('./models/image');
 
 const PORT = 5000;
-const dbUrl='mongodb+srv://tester:tester123@ClusterName.m7tde.mongodb.net/testing?retryWrites=true&w=majority';
+const dbUrl='mongodb+srv://tester:tester123@ClusterName.m7tde.mongodb.net/Flipkart?retryWrites=true&w=majority';
 mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then((result) => app.listen( PORT, () => console.log( `Server running on port ${PORT}` ))) 
 .catch((err) => console.log(err));
@@ -39,8 +39,11 @@ app.set('view engine','ejs');
 app.get('/', (req,res) => res.render('index'));
 app.post('/upload',upload, (req,res,next)=>{
     var imd = new Image({
-        name: req.file.originalname,
+        name: req.body.name,
+        price : req.body.price,
+        description : req.body.description,
         category: req.body.category,
+        subCategory : req.body.subCategory,
         img: {
             data: fs.readFileSync(path.join(__dirname + '/public/uploads/' + req.file.filename), { encoding: 'base64' }),
             contentType: req.file.mimetype
@@ -93,7 +96,19 @@ app.get('/allimages',(req,res)=>{
 });
 
 app.post('/search',(req,res)=>{
-    Image.find( { $or : [ { name :  { "$regex": req.body.str , "$options": "i" } },{ category :  { "$regex": req.body.str , "$options": "i" } }] }             )
+    // Image.find( { $or : [ { name :  { "$regex": req.body.str , "$options": "i" } },{ category :  { "$regex": req.body.str , "$options": "i" } }] }             )
+    // .then((result)=>{
+    //     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    //     res.send(result);
+    // })
+    // .catch((err)=>{
+    //     console.log(err);
+    // })
+    console.log(req.body.categoryClicked)
+});
+
+app.post('/category',(req,res)=>{
+    Image.find( { $or : [ { subCategory :  { "$regex": req.body.categoryClicked , "$options": "i" } },{ category :  { "$regex": req.body.categoryClicked , "$options": "i" } }] }             )
     .then((result)=>{
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
         res.send(result);
