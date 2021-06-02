@@ -18,7 +18,7 @@ function App() {
   useEffect(()=>{
     const getTasks = async ()=> {
       const taskf = await fetchTask()
-      const imagef = await fetchImage()
+      const imagef = await clickedItems()
       setImage(imagef)
       setTasks(taskf)
     }
@@ -53,6 +53,20 @@ function App() {
     const data = await res.json()
     return data
   }
+  
+  // Get clicked component items
+  const clickedItems = async() =>{
+    // Simple POST request with a JSON body using fetch
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ str : 'electronics' })
+    };
+    const res = await fetch('http://localhost:5000/category', requestOptions)
+    const data = await res.json()
+    return data
+  }
+
 
   // Add Task
   const addTask = async (task) =>{
@@ -88,7 +102,7 @@ function App() {
   
   return (
     <Router>
-    <div className="container">
+    <>
       <Header title={1} onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
       {showAddTask && <AddTasks onAdd={addTask} />}
 
@@ -102,7 +116,7 @@ function App() {
       />
       <Route path='/about' component={About} />
       <Footer/>
-    </div>
+    </>
     </Router>
   );
 }
