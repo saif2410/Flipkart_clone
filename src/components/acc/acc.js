@@ -18,7 +18,7 @@ const addUser = async(user) =>{
       <div>
       
 
-              <button className="btn btn-secondary"  to="#" variant="primary" onClick={handleShow} id="bgcolor">Sign In</button>
+              <button className="btn btn-secondary"  to="#" variant="primary" onClick={handleShow} id="btn_nav_1">Sign In</button>
               { <Modal show={show} onHide={handleClose}> 
               <div className="card" className="login-box">      
          <div className="row">
