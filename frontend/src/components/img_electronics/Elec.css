@@ -1,0 +1,15 @@
+#img:hover{
+    transition-duration: 300ms;
+    transform: scale(1.03);
+    
+}
+#img{
+    position: relative;
+    color:rgb(43, 49, 47);
+    text-align: center;
+    font-weight: 500;
+    font-size: large;
+}
+#img1{
+    height: 230px;
+}
