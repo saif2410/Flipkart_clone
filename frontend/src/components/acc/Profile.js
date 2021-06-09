@@ -1,8 +1,10 @@
 import React,{useState, useEffect} from 'react'
 import {useSelector , useDispatch} from 'react-redux'
 import { signOut } from '../../actions'
+import {useHistory} from 'react-router-dom'
 
 const Profile = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const isLogged = useSelector(state => state.isLogged)
     const [data,setData] = useState()
@@ -25,12 +27,16 @@ const Profile = () => {
         const data = await res.json()
         return data
     }
+    const thisone=()=>{
+        dispatch(signOut());
+        history.push('/')
+    }
     return (
         <div>
             {data ?  <h5>{data.firstname}  </h5>: ''}
             {data ?  <h5>{data.lastname}  </h5>: ''}
             {data ?  <h5>{data.email}  </h5>: ''}
-            <button onClick={()=>dispatch(signOut())}>logout</button>
+            <button onClick={thisone}>logout</button>
         </div>
     )
 }

@@ -10,7 +10,7 @@ export const Navbar1 = () => {
      const isLogged = useSelector(state => state.isLogged)
      const history = useHistory();
      const goToCart =()=>{
-          history.push('/cart');
+          {isLogged.status ?  history.push('/cart'):alert('not logged in')}
      }
      return (
           <div  >

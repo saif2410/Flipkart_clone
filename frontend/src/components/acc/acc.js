@@ -19,10 +19,16 @@ export const Acc = () => {
           'Content-type':'application/json'
         },
         body: JSON.stringify(user)
-       } )
-     }
+        })
+        const data = await res.json();
+        if( data.status ){
+          dispatch(signIn(data.token));
+        }else{
+          alert('email already exists');
+        }
+    }
      
-     const checkUser = async(user) =>{
+    const checkUser = async(user) =>{
       const res = await fetch('http://localhost:5000/checkUser',
       {
         method: 'POST',
@@ -30,7 +36,7 @@ export const Acc = () => {
         'Content-type':'application/json'
       },
       body: JSON.stringify(user)
-     } )
+      })
       const data = await res.json();
       if( data.status ){
         dispatch(signIn(data.token));

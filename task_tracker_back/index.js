@@ -145,14 +145,16 @@ app.post('/addUser', (req, res) => {
             });
             user.save()
             .then((result)=>{
-                res.send('logged in');
+              const user = {_id : result._id}
+              const token = jwt.sign(user, 'saif24')
+              res.send({ status: true, token });
             })
             .catch((err)=>{
                 console.log(err);
             });
         }
         else{
-          res.send('Email Already in Use');
+          res.send({ status : false });
         }
       })
       .catch((err)=>{
