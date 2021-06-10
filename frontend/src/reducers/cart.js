@@ -5,13 +5,13 @@ const initialState = {
 
 const addedIds = (state = initialState.addedIds, action) => {
     switch (action.type) {
-      case 'ADD_TO_CART':
-        if (state.indexOf(action.productId) !== -1) {
-          return state
-        }
-        return [ ...state, action.productId ]
-      default:
-        return state
+        case 'ADD_TO_CART':
+            if (state.indexOf(action.productId) !== -1) {
+                return state
+            }
+            return [ ...state, action.productId ]
+        default:
+            return state
     }
 }
   
@@ -27,12 +27,15 @@ const quantityById = (state = initialState.quantityById, action) => {
 
 const cart = (state = initialState, action) => {
     switch (action.type) {
-        case 'CHECKOUT_REQUEST':
-            return initialState
         case 'SIGN_OUT':
             return initialState
-        case 'CHECKOUT_FAILURE':
-            return action.cart
+        case 'REMOVE_FROM_CART':
+            if(state.quantityById[action.productId]===1){
+                return [ state.addedIds.splice(state.addedIds.indexOf(action.productId), 1) ]
+            }
+            else{
+                return
+            }     
         default:
             return {addedIds: addedIds(state.addedIds, action),quantityById: quantityById(state.quantityById, action)}
     }

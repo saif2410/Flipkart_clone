@@ -1,7 +1,10 @@
 import React from 'react'
 import { useEffect,useState } from 'react'
+import { useDispatch} from 'react-redux'
+import { addToCart, removeFromCart } from '../../actions'
 
 const CartItem = ({itemId,itemQuantity}) => {
+    const dispatch = useDispatch();
     const [itemdata,setItemdata] = useState()
     useEffect(()=>{
         const getItemData = async ()=> {
@@ -25,7 +28,9 @@ const CartItem = ({itemId,itemQuantity}) => {
         <div>
             {itemdata ?  <h5>{itemdata.name}  </h5>: ''}
             <h5>Quantity : {itemQuantity}</h5>
-            {itemdata ?  <img src={"data:"+itemdata.img.contentType+";base64,"+itemdata.img.data} /> : ''} 
+            <button onClick={()=>dispatch(removeFromCart(itemId))}>-</button>
+            <button onClick={()=>dispatch(addToCart(itemId))}>+</button>
+            {itemdata ?  <img src={"data:"+itemdata.img.contentType+";base64,"+itemdata.img.data} /> : ''}
         </div>
     )
 }
