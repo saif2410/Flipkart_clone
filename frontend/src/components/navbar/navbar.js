@@ -42,7 +42,7 @@ export const Navbar1 = () => {
                <div class="input-group" >
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Chain_link_icon.png" alt="Girl in a jacket" height='36px' width='80px'  />
                     
-                    <div style={{marginLeft:'10.9%'}} >
+                    <div style={{marginLeft:'32%'}} >
                          <tr>
                               <td>
                                    <div class="form-outline">
@@ -62,7 +62,7 @@ export const Navbar1 = () => {
           
 
 
-                    <div style={{marginLeft:'9.6%'}}>
+                    <div style={{marginLeft:'33%'}}>
                          <tr>
                               <td>
                               {isLogged.status ?  

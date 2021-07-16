@@ -9,6 +9,10 @@ import headphones from '../img_electronics/headphones.png'
 import laptop from '../img_electronics/laptop.png'
 import phone from '../img_electronics/phone.png'
 import watch from '../img_electronics/watch.png'
+import shirt from '../img_electronics/shirt.jpg'
+import jeans from '../img_electronics/jeans.jpg'
+import hoddie from '../img_electronics/hoddie.jpg'
+import shoes from '../img_electronics/shoes.jpg'
 
 
 import {useHistory} from 'react-router-dom'
@@ -53,6 +57,40 @@ const Products = () => {
                 <Col  id="img" onClick={()=>clicked_item('watch')}>
                 <img src={watch} id="img1"/>
                 <label style={{marginTop:'5px'}}>Smart Watches</label>
+                </Col>
+              </Row>
+            </Container>     
+          </Card.Text>
+        </Card.Body>
+      </Card>
+
+      <Card style={{height:'auto',marginTop:'30px',width:'auto',marginLeft:'20px',marginRight:'20px',borderColor:'crimson',borderWidth:'2px'}} >
+        <Card.Header style={{backgroundColor:'crimson',textAlign:'center',color:'white',fontSize:'25px',fontFamily:'Lucida Console',borderColor:'rgb(43, 49, 47)',borderWidth:'3px'}}>
+          Fashion
+        </Card.Header>
+        
+        <Card.Body >
+          <Card.Text>
+            <Container >
+              <Row>        
+                <Col id="img" onClick={()=> clicked_item('shirt') }>
+                <img src={shirt} height="226px" />
+                <label style={{marginTop:'5px'}}>Shirt</label>  
+                </Col>
+                         
+                <Col id="img" onClick={()=>clicked_item('jeans',history)}>
+                <img src={jeans} id="img1"  />
+                <label style={{marginTop:'5px'}}>jeans</label>
+                </Col>
+
+                <Col id="img" onClick={()=>clicked_item('hoddie')}>
+                <img src={hoddie} id="img1" />
+                <label style={{marginTop:'5px'}}>hoddie</label>
+                </Col>
+
+                <Col  id="img" onClick={()=>clicked_item('shoes')}>
+                <img src={shoes} id="img1"/>
+                <label style={{marginTop:'5px'}}>shoes</label>
                 </Col>
               </Row>
             </Container>     

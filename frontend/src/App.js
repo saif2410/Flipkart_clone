@@ -19,7 +19,6 @@ function App()  {
                   <Navbar2/> 
                   <Slider/>
                   <Products/>
-                  <Products/>
                </>
                )}/>
 
