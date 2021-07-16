@@ -4,6 +4,8 @@ import  first from "./first.png"
 import  third from "./third.png"
 import {Carousel} from 'react-bootstrap';
 
+
+
 export const Slider = () => {
     return (
         <div>
